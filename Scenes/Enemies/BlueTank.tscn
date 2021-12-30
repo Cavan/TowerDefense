@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Enemies/tank_blue.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Enimies/BlueTank.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Enemies/BlueTank.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22.875, 20.625 )
 
 [node name="BlueTank" type="PathFollow2D"]
+loop = false
 script = ExtResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
