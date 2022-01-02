@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Towers/towerDefense_tile181.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Towers/towerDefense_tile249.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Turrets/GunT1.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Effects/towerDefense_tile297.png" type="Texture" id=4]
+[ext_resource path="res://Assets/SoundEffects/Guns/turret_fire_1.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
@@ -56,6 +57,9 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fire = SubResource( 2 )
+
+[node name="CannonShotSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]

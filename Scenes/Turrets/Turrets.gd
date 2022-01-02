@@ -6,13 +6,13 @@ var enemy_array = []
 var built = false
 var enemy
 var ready = true
-
+var turret_shooting_fx
 func _ready():
 	if built:
 		#var test_0 = type
 		#var test = GameData.tower_data[type]["range"]
 		self.get_node("Range/CollisionShape2D").get_shape().radius = 0.5 * GameData.tower_data[type]["range"]
-
+		
 
 func _physics_process(delta):
 	if enemy_array.size() != 0 and built:
@@ -51,6 +51,7 @@ func fire():
 
 func fire_gun():
 	get_node("AnimationPlayer").play("Fire")
+	get_node("CannonShotSound").play()
 	
 func fire_missile():
 	pass
