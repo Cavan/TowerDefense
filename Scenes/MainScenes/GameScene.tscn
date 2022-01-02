@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Maps/Map1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/UI/Buttons/blue_button12.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/UI/HPbar.jpg" type="Texture" id=13]
 [ext_resource path="res://Assets/SoundEffects/PlayerSounds/player_hit_damage.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Assets/SoundEffects/PlayerSounds/player_dies.wav" type="AudioStream" id=15]
+[ext_resource path="res://Assets/Icons/return.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -106,7 +107,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -164.0
+margin_left = -250.0
 margin_top = -90.0
 margin_right = -20.0
 margin_bottom = -20.0
@@ -114,10 +115,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="StartNewWave" type="TextureButton" parent="UI/HUD/GameControls"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PausePlay" type="TextureButton" parent="UI/HUD/GameControls"]
 pause_mode = 2
-margin_right = 70.0
-margin_bottom = 70.0
+margin_left = 104.0
+margin_top = 15.0
+margin_right = 174.0
+margin_bottom = 85.0
 rect_min_size = Vector2( 70, 70 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -127,9 +138,10 @@ texture_pressed = ExtResource( 9 )
 expand = true
 
 [node name="SpeedUp" type="TextureButton" parent="UI/HUD/GameControls"]
-margin_left = 74.0
-margin_right = 144.0
-margin_bottom = 70.0
+margin_left = 178.0
+margin_top = 15.0
+margin_right = 248.0
+margin_bottom = 85.0
 rect_min_size = Vector2( 70, 70 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -198,9 +210,11 @@ nine_patch_stretch = true
 [node name="Tween" type="Tween" parent="UI/HUD/InfoBar/H/HP"]
 
 [node name="PlayerDamage" type="AudioStreamPlayer2D" parent="UI/HUD/InfoBar/H/HP"]
+visible = false
 stream = ExtResource( 14 )
 
 [node name="PlayerDeath" type="AudioStreamPlayer2D" parent="UI/HUD/InfoBar/H/HP"]
+visible = false
 stream = ExtResource( 15 )
 
 [node name="Control" type="Control" parent="UI/HUD/InfoBar/H"]
@@ -209,5 +223,6 @@ margin_right = 1280.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 70, 0 )
 
+[connection signal="pressed" from="UI/HUD/GameControls/StartNewWave" to="UI" method="_on_StartNewWave_pressed"]
 [connection signal="pressed" from="UI/HUD/GameControls/PausePlay" to="UI" method="_on_PausePlay_pressed"]
 [connection signal="pressed" from="UI/HUD/GameControls/SpeedUp" to="UI" method="_on_SpeedUp_pressed"]

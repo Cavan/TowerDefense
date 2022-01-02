@@ -153,3 +153,4 @@ curve = SubResource( 4 )
 
 [node name="Map_Level_1_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -16.56

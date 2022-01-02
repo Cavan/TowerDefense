@@ -106,13 +106,14 @@ func verify_and_build():
 
 func on_base_damage(damage):
 	base_health -= damage
-	get_node("UI/HUD/InfoBar/H/HP/PlayerDamage").play()
 	if base_health <= 0:
-		get_node("UI/HUD/InfoBar/H/HP/PlayerDamage").stop()
-		get_node("UI/HUD/InfoBar/H/HP/PlayerDeath").play()
+		#get_node("UI/HUD/InfoBar/H/HP/PlayerDamage").stop()
 		emit_signal("game_finished", false)
+		#get_node("UI/HUD/InfoBar/H/HP/PlayerDeath").play()
 	else:
 		get_node("UI").update_health_bar(base_health)
+		get_node("UI/HUD/InfoBar/H/HP/PlayerDamage").play()
+		#$UI/HUD/InfoBar/H/HP/PlayerDamage.play()
 
 
 

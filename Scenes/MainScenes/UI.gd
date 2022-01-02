@@ -68,3 +68,8 @@ func update_health_bar(base_health):
 		
 
 
+
+
+func _on_StartNewWave_pressed():
+	var wave_data = get_parent().retrieve_wave_data()
+	get_parent().spawn_enemies(wave_data)
